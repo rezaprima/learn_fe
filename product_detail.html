@@ -57,6 +57,9 @@
 			text-align: center;
 			color: white;
 			font-weight: bold;
+			position: fixed;
+			bottom: 0;
+			height: 20px;
 		}
 
 		.product {
@@ -101,6 +104,22 @@
 			font-size: large;
 			margin-bottom: 10px;
 		}
+
+		#back_btn{
+			margin-top: 10px;
+			margin-left: 10px;
+			width: 30px;
+			height: 30px;
+			border-radius: 15px;
+			background-color: #cc1b4a;
+			padding: auto;
+			position: fixed;
+		}
+
+		#back_btn_img {
+			margin: auto;
+			align-items: center;
+		}
 	</style>
 </head>
 
@@ -112,6 +131,11 @@
 		</header>
 	<div class="body">
 		<div class="product">
+		<div id="back_btn">
+			<div id="back_btn_img">
+				<a href="product_list.html"><img src="chevron-left.svg"></a>
+			</div>
+		</div>
 			<div class="photo">
 				<img class="picture" src="img/picsum7.jpg">
 			</div>
@@ -130,8 +154,8 @@
 			<div class="information_content">
 				Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, voluptatum iure. Dolorum, fuga velit. Laudantium, iure repellat autem blanditiis temporibus doloribus quis! Maxime dolorum quasi adipisci iste, minima incidunt explicabo.
 			</div>
-		</div>
 		<div id="add_btn">Add to Cart</div>
+		</div>
 	</div>
 </body>
 </html>
