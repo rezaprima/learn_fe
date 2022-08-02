@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Product Detail</title>
+	<style>
+		header{
+			background-color: #cc1b4a;
+			display: flex;
+			margin: auto;
+			padding-top: 5px;
+		} 
+		#title{
+			flex-grow: 1;
+			flex-basis: auto;
+			padding-left: 10px;
+			color: white;
+			margin: auto;
+			font-weight: bolder;
+			text-decoration: none;
+		}
+		#shopping_cart{
+			display: inline;
+			flex-grow: 0;
+			flex-shrink: 1;
+		}
+		#login{
+			display: inline;
+			flex-grow: 0;
+			flex-shrink: 1;
+		}
+		body{
+			font-family: "Avenir", Helvetica, Arial, sans-serif;
+			color: #2c3e50;
+			background-color: gray;
+		}
+		form_field{
+			display: block;
+		}
+		.field_name{
+			font-size: 12pt;
+		}
+		input{
+			font-size: large;
+		}
+		.submit_btn {
+			padding-top: 5px;
+			width: 100%;
+			margin: auto;
+		}
+
+		#add_btn{
+			display: block;
+			margin: auto;
+			width: 100%;
+			background-color: #6ebe40;
+			border-radius: 4px;
+			text-align: center;
+			color: white;
+			font-weight: bold;
+		}
+
+		.product {
+			margin-left: auto;
+			margin-right: auto;
+			background-color: white;
+		}
+		.photo {
+			margin-left: auto;
+			margin-right: auto;
+			width: 200px;
+			height: 300px;
+		}
+		.price {
+			margin-top: 3px;
+			margin-bottom: 3px;
+			margin-left: 3px;
+			font-size: large;
+			font-weight: bold;
+		}
+
+		.product_title {
+			margin-top: 3px;
+			margin-bottom: 3px;
+			margin-left: 3px;
+			font-weight: bold;
+		}
+
+		.product_category {
+			margin-top: 3px;
+			margin-bottom: 3px;
+			margin-left: 3px;
+			color: gray;
+		}
+
+		.information{
+			background-color: white;
+		}
+
+		.information_title{
+			font-weight: bold;
+			font-size: large;
+			margin-bottom: 10px;
+		}
+	</style>
+</head>
+
+<body>
+		<header>
+			<div id="title"><a href="product_list.html" id="title">Jualanku</a></div>
+			<div id="shopping_cart"><img src="shopping-cart-white.svg" alt=""></div>
+			<div id="login"><a href="login.html"><img src="log-in.svg" alt=""></a></div>
+		</header>
+	<div class="body">
+		<div class="product">
+			<div class="photo">
+				<img class="picture" src="img/picsum7.jpg">
+			</div>
+			<div class="price">
+				$ 22.3
+			</div>
+			<div class="product_title">
+				Men's Casual Premium Slim Fit T-Shirt
+			</div>
+			<div class="product_category">men's clothing</div>
+		</div>
+		<div class="information">
+			<div class="information_title">
+				Information
+			</div>
+			<div class="information_content">
+				Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, voluptatum iure. Dolorum, fuga velit. Laudantium, iure repellat autem blanditiis temporibus doloribus quis! Maxime dolorum quasi adipisci iste, minima incidunt explicabo.
+			</div>
+		</div>
+		<div id="add_btn">Add to Cart</div>
+	</div>
+</body>
+</html>
