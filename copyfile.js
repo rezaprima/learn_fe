@@ -1,8 +1,8 @@
 const fs = require('fs');
 
-async function copyFile() {
+function copyFile() {
 	try{
-		const data = await fs.readFile('tobecopied.txt', {encoding: 'utf8'});
+		const data = fs.readFileSync('tobecopied.txt', 'utf8');
 		fs.writeFile('copyhere.txt', data, (err) => {
 			if(err) {
 				throw err;
