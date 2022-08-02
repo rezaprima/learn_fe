@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Product Detail</title>
+	<style>
+		header {
+			background-color: #cc1b4a;
+			display: flex;
+			margin: auto;
+			padding-top: 5px;
+		}
+
+		#title {
+			flex-grow: 1;
+			flex-basis: auto;
+			padding-left: 10px;
+			color: white;
+			margin: auto;
+			font-weight: bolder;
+			text-decoration: none;
+		}
+
+		#shopping_cart {
+			display: inline;
+			flex-grow: 0;
+			flex-shrink: 1;
+		}
+
+		#login {
+			display: inline;
+			flex-grow: 0;
+			flex-shrink: 1;
+		}
+
+		body {
+			font-family: "Avenir", Helvetica, Arial, sans-serif;
+			color: #2c3e50;
+		}
+
+		form_field {
+			display: block;
+		}
+
+		.field_name {
+			font-size: 12pt;
+		}
+
+		input {
+			font-size: large;
+		}
+
+		.submit_btn {
+			padding-top: 5px;
+			width: 100%;
+			margin: auto;
+		}
+
+		.add_btn {
+			display: block;
+			margin: auto;
+			width: 100%;
+			background-color: #6ebe40;
+			text-align: center;
+			color: white;
+			font-weight: bold;
+		}
+
+		.products {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+		}
+		.product {
+			background-color: white;
+			display: inline;
+			border-radius: 4px;
+			margin: 2px;
+			border-width: 1px;
+			border-style: solid;
+			border-color: gray;
+			border-top-left-radius: 5px;
+			border-top-right-radius: 5px;
+			border-bottom-left-radius: 5px;
+			border-bottom-right-radius: 5px;
+		}
+
+		.photo {
+			margin-left: auto;
+			margin-right: auto;
+			width: 200px;
+			height: 300px;
+		}
+
+		.price {
+			margin-top: 3px;
+			margin-bottom: 3px;
+			margin-left: 3px;
+			font-size: large;
+			font-weight: bold;
+		}
+
+		.product_title {
+			margin-top: 3px;
+			margin-bottom: 3px;
+			margin-left: 3px;
+			font-weight: bold;
+		}
+
+		.product_category {
+			margin-top: 3px;
+			margin-bottom: 3px;
+			margin-left: 3px;
+			color: gray;
+		}
+
+		.information {
+			background-color: white;
+		}
+
+		.information_title {
+			font-weight: bold;
+			font-size: large;
+			margin-bottom: 10px;
+		}
+
+		#menu {
+			vertical-align: bottom;
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+		}
+
+		#category {
+			margin: auto;
+		}
+
+		#sort_by {
+			margin: auto;
+		}
+	</style>
+</head>
+
+<body>
+	<header>
+		<div id="title"><a href="product_list.html" id="title">Jualanku</a></div>
+		<div id="shopping_cart"><img src="shopping-cart-white.svg" alt=""></div>
+		<div id="login"><a href="login.html"><img src="log-in.svg" alt=""></a></div>
+	</header>
+	<div class="body">
+		<div class="products">
+			<div class="product">
+				<div class="photo">
+					<img class="picture" src="img/picsum7.jpg">
+				</div>
+				<div class="price">
+					$ 22.3
+				</div>
+				<div class="product_title">
+					Men's Casual Premium Slim Fit T-Shirt
+				</div>
+				<div class="product_category">men's clothing</div>
+				<div class="add_btn">Add to cart</div>
+			</div>
+			<div class="product">
+				<div class="photo">
+					<img class="picture" src="img/picsum1.jpg">
+				</div>
+				<div class="price">
+					$ 22.3
+				</div>
+				<div class="product_title">
+					Men's Casual Premium Slim Fit T-Shirt
+				</div>
+				<div class="product_category">men's clothing</div>
+				<div class="add_btn">Add to cart</div>
+			</div>
+			<div class="product">
+				<div class="photo">
+					<img class="picture" src="img/picsum2.jpg">
+				</div>
+				<div class="price">
+					$ 22.3
+				</div>
+				<div class="product_title">
+					Men's Casual Premium Slim Fit T-Shirt
+				</div>
+				<div class="product_category">men's clothing</div>
+				<div class="add_btn">Add to cart</div>
+			</div>
+			<div class="product">
+				<div class="photo">
+					<img class="picture" src="img/picsum3.jpg">
+				</div>
+				<div class="price">
+					$ 22.3
+				</div>
+				<div class="product_title">
+					Men's Casual Premium Slim Fit T-Shirt
+				</div>
+				<div class="product_category">men's clothing</div>
+				<div class="add_btn">Add to cart</div>
+			</div>
+		</div>
+		<div id="menu">
+			<div id="category">
+				<img src="server.svg"> category
+			</div>
+			<div id="sort_by">
+				<img src="list.svg"> sort by
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
