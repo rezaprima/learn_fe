@@ -62,6 +62,16 @@
 			border-color: gray;
 		}
 	</style>
+	<script>
+		function togglePasswordVisible() {
+			var pw = document.getElementById('thepassword')
+			if (pw.type === 'password') {
+				pw.type = 'text'
+			} else {
+				pw.type = 'password'
+			}
+		}
+	</script>
 </head>
 
 <body>
@@ -78,7 +88,10 @@
 		</div>
 		<div class="form_field">
 			<div class="field_name">Password</div>
-			<input type="password" name="username">
+			<input type="password" name="password" id="thepassword">
+		</div>
+		<div class="form_field">
+			<input type="checkbox" onclick="togglePasswordVisible()" id="toggleCheck"> Show Password
 		</div>
 		<div class="submit_btn">
 			<input type="submit" title="Login">
