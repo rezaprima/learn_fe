@@ -2,7 +2,6 @@
   <div class="body">
     <nav-bar/>
     <login/>
-    <router-view/>
   </div>
 </template>
 
