@@ -3,17 +3,17 @@
     <h1>Login</h1>
     <div class="form_field">
       <div class="field_name">Username</div>
-      <input type="text" name="username">
+      <input type="text" v-model="username" name="username">
     </div>
     <div class="form_field">
       <div class="field_name">Password</div>
-      <input :type="passwordType" name="password" id="thepassword">
+      <input :type="passwordType" v-model="password" name="password" id="thepassword">
     </div>
     <div class="form_field">
       <input type="checkbox" v-model="showPassword" id="toggleCheck"> Show Password
     </div>
     <div class="submit_btn">
-      <input type="submit" title="Login">
+      <input type="button" title="Login" :disabled="loginNotAllowed" value="Login">
     </div>
   </div>
 </template>
@@ -23,12 +23,17 @@ export default {
   name: 'Login',
   data() {
     return {
+      username: '',
+      password: '',
       showPassword: false,
     }
   },
   computed: {
     passwordType: function() {
-	  return this.showPassword ? 'text' : 'password'
+      return this.showPassword ? 'text' : 'password'
+    },
+    loginNotAllowed: function() {
+      return !(this.username !== '' && this.password !== '')
     }
   }
 }
@@ -49,7 +54,7 @@ export default {
     width: 100%;
     margin: auto;
   }
-  input[type=submit]{
+  input[type=button]{
     margin: auto;
     width: 50%;
     background-color: #6ebe40;
