@@ -54,7 +54,7 @@
         <img src="../assets/list.svg" /> sort by
       </div>
     </div>
-    <div id="category_popup">
+    <div id="category_popup" v-show="categoryDisplay==='block'">
       <div class="category_popup_entry">
         <input type="checkbox" /> electronics
       </div>
@@ -66,7 +66,7 @@
         <input type="checkbox" /> women's clothing
       </div>
     </div>
-    <div id="sort_popup">
+    <div id="sort_popup" v-show="sortDisplay==='block'">
       <div class="sort_popup_entry" onclick="setSort('lowest_price')">
         <div class="popup_entry_title">Lowest Price</div>
         <div class="popup_entry_check">
@@ -97,29 +97,21 @@
 
 <script>
 export default {
-  name: "Product List",
+  name: "ProductList",
   data: function () {
     return {
       products: [],
+	  categoryDisplay: 'none',
+	  sortDisplay: 'none',
     };
   },
   computed: {},
   methods:{
 		toggleCategoryPopup: function () {
-			var x = document.getElementById("category_popup")
-			if(x.style.display === "block") {
-				x.style.display = "none"
-			} else {
-				x.style.display = "block"
-			}
+			this.categoryDisplay = (this.categoryDisplay === 'none' ? 'block' : 'none')
 		},
 		toggleSortPopup: function() {
-			var x = document.getElementById("sort_popup")
-			if(x.style.display === "block") {
-				x.style.display = "none"
-			} else {
-				x.style.display = "block"
-			}
+			this.sortDisplay = (this.sortDisplay === 'none' ? 'block' : 'none')
 		},
 		setSort: function (sortName) {
 			var checks = document.getElementsByClassName('popup_check')
@@ -202,7 +194,7 @@ export default {
 }
 
 #category_popup {
-  display: none;
+  display: block;
   position: fixed;
   bottom: 40px;
   left: 0;
@@ -225,7 +217,7 @@ export default {
 }
 
 #sort_popup {
-  display: none;
+  display: block;
   position: fixed;
   bottom: 40px;
   right: 0;
