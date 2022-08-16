@@ -47,10 +47,10 @@
       </div>
     </div>
     <div id="menu">
-      <div id="category" onclick="toggleCategoryPopup()">
+      <div id="category" @click="toggleCategoryPopup">
         <img src="../assets/server.svg" /> category
       </div>
-      <div id="sort_by" onclick="toggleSortPopup()">
+      <div id="sort_by" @click="toggleSortPopup">
         <img src="../assets/list.svg" /> sort by
       </div>
     </div>
@@ -71,7 +71,7 @@
         <div class="popup_entry_title">Lowest Price</div>
         <div class="popup_entry_check">
           <div class="popup_check" id="lowest_price_check">
-            <img src="check.svg" />
+            <img src="../assets/check.svg" />
           </div>
         </div>
       </div>
@@ -81,14 +81,14 @@
         </div>
         <div class="popup_entry_check">
           <div class="popup_check" id="highest_price_check">
-            <img src="check.svg" />
+            <img src="../assets/check.svg" />
           </div>
         </div>
       </div>
       <div class="sort_popup_entry">
         <div class="popup_entry_title" onclick="setSort('name')">Name</div>
         <div class="popup_entry_check">
-          <div class="popup_check" id="name_check"><img src="check.svg" /></div>
+          <div class="popup_check" id="name_check"><img src="../assets/check.svg" /></div>
         </div>
       </div>
     </div>
