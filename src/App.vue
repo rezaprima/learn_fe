@@ -1,16 +1,23 @@
 <template>
   <div class="body">
     <nav-bar/>
-    <login/>
+    <login v-if="page==='login'"/>
+    <product-list v-if="page==='product-list'"/>
   </div>
 </template>
 
 <script>
 import Login from './components/Login.vue'
+import ProductList from './components/ProductList.vue'
 import NavBar from './components/NavBar.vue'
 export default {
-  components: { NavBar, Login },
-  name: 'App'
+  components: { NavBar, Login, ProductList },
+  name: 'App',
+  data: function () {
+    return {
+      page: 'product-list'
+    }
+  }
 }
 </script>
 
