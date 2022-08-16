@@ -1,48 +1,15 @@
 <template>
   <div>
     <div class="products">
-      <div class="product">
+      <div class="product" v-for="product in products" v-bind:key="product.id">
         <div class="photo">
           <a href="product_detail.html">
-            <img class="picture" src="/static/img/picsum7.jpg" />
+            <img class="picture" v-bind:src="product.picture" />
           </a>
         </div>
-        <div class="price">$ 22.3</div>
-        <div class="product_title">Men's Casual Premium Slim Fit T-Shirt</div>
-        <div class="product_category">men's clothing</div>
-        <div class="add_btn">Add to cart</div>
-      </div>
-      <div class="product">
-        <div class="photo">
-          <a href="product_detail.html">
-            <img class="picture" src="/static/img/picsum1.jpg" />
-          </a>
-        </div>
-        <div class="price">$ 22.3</div>
-        <div class="product_title">Men's Casual Premium Slim Fit T-Shirt</div>
-        <div class="product_category">men's clothing</div>
-        <div class="add_btn">Add to cart</div>
-      </div>
-      <div class="product">
-        <div class="photo">
-          <a href="product_detail.html">
-            <img class="picture" src="/static/img/picsum2.jpg" />
-          </a>
-        </div>
-        <div class="price">$ 22.3</div>
-        <div class="product_title">Men's Casual Premium Slim Fit T-Shirt</div>
-        <div class="product_category">men's clothing</div>
-        <div class="add_btn">Add to cart</div>
-      </div>
-      <div class="product">
-        <div class="photo">
-          <a href="product_detail.html">
-            <img class="picture" src="/static/img/picsum3.jpg" />
-          </a>
-        </div>
-        <div class="price">$ 22.3</div>
-        <div class="product_title">Men's Casual Premium Slim Fit T-Shirt</div>
-        <div class="product_category">men's clothing</div>
+        <div class="price">$ {{ product.price }}</div>
+        <div class="product_title">{{ product.title }}</div>
+        <div class="product_category">{{ product.category }}</div>
         <div class="add_btn">Add to cart</div>
       </div>
     </div>
@@ -100,7 +67,36 @@ export default {
   name: "ProductList",
   data: function () {
     return {
-      products: [],
+      products: [
+		{
+			id:1,
+			picture: '/static/img/picsum7.jpg',
+			price: 22.3,
+			title: 'Men\'s Casual Premium Slim Fit T-Shirt',
+			category: 'men\'s clothing'
+		},
+		{
+			id:2,
+			picture: '/static/img/picsum1.jpg',
+			price: 22.3,
+			title: 'Men\'s Casual Premium Slim Fit T-Shirt',
+			category: 'men\'s clothing'
+		},
+		{
+			id:3,
+			picture: '/static/img/picsum2.jpg',
+			price: 22.3,
+			title: 'Men\'s Casual Premium Slim Fit T-Shirt',
+			category: 'men\'s clothing'
+		},
+		{
+			id:4,
+			picture: '/static/img/picsum3.jpg',
+			price: 22.3,
+			title: 'Men\'s Casual Premium Slim Fit T-Shirt',
+			category: 'men\'s clothing'
+		}
+	  ],
 	  showCategoryPopup: false,
 	  showSortPopup: false,
 	  sort: '',
