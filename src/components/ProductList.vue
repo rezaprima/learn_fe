@@ -54,7 +54,7 @@
         <img src="../assets/list.svg" /> sort by
       </div>
     </div>
-    <div id="category_popup" v-show="categoryDisplay==='block'">
+    <div id="category_popup" v-show="showCategoryPopup">
       <div class="category_popup_entry">
         <input type="checkbox" /> electronics
       </div>
@@ -66,7 +66,7 @@
         <input type="checkbox" /> women's clothing
       </div>
     </div>
-    <div id="sort_popup" v-show="sortDisplay==='block'">
+    <div id="sort_popup" v-show="showSortPopup">
       <div class="sort_popup_entry" @click="setSort('lowest_price')">
         <div class="popup_entry_title">Lowest Price</div>
         <div class="popup_entry_check">
@@ -101,18 +101,18 @@ export default {
   data: function () {
     return {
       products: [],
-	  categoryDisplay: 'none',
-	  sortDisplay: 'none',
+	  showCategoryPopup: false,
+	  showSortPopup: false,
 	  sort: '',
     };
   },
   computed: {},
   methods:{
 		toggleCategoryPopup: function () {
-			this.categoryDisplay = (this.categoryDisplay === 'none' ? 'block' : 'none')
+			this.showCategoryPopup = !this.showCategoryPopup
 		},
 		toggleSortPopup: function() {
-			this.sortDisplay = (this.sortDisplay === 'none' ? 'block' : 'none')
+			this.showSortPopup = !this.showSortPopup
 		},
 		setSort: function (sortName) {
 			this.sort = sortName
