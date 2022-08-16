@@ -4,7 +4,7 @@
       <div class="product" v-for="product in products" v-bind:key="product.id">
         <div class="photo">
           <a href="product_detail.html">
-            <img class="picture" v-bind:src="product.picture" />
+            <img class="picture" v-bind:src="product.image" />
           </a>
         </div>
         <div class="price">$ {{ product.price }}</div>
@@ -70,28 +70,28 @@ export default {
       products: [
 		{
 			id:1,
-			picture: '/static/img/picsum7.jpg',
+			image: '/static/img/picsum7.jpg',
 			price: 22.3,
 			title: 'Men\'s Casual Premium Slim Fit T-Shirt',
 			category: 'men\'s clothing'
 		},
 		{
 			id:2,
-			picture: '/static/img/picsum1.jpg',
+			image: '/static/img/picsum1.jpg',
 			price: 22.3,
 			title: 'Men\'s Casual Premium Slim Fit T-Shirt',
 			category: 'men\'s clothing'
 		},
 		{
 			id:3,
-			picture: '/static/img/picsum2.jpg',
+			image: '/static/img/picsum2.jpg',
 			price: 22.3,
 			title: 'Men\'s Casual Premium Slim Fit T-Shirt',
 			category: 'men\'s clothing'
 		},
 		{
 			id:4,
-			picture: '/static/img/picsum3.jpg',
+			image: '/static/img/picsum3.jpg',
 			price: 22.3,
 			title: 'Men\'s Casual Premium Slim Fit T-Shirt',
 			category: 'men\'s clothing'
