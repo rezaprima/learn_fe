@@ -67,28 +67,28 @@
       </div>
     </div>
     <div id="sort_popup" v-show="sortDisplay==='block'">
-      <div class="sort_popup_entry" onclick="setSort('lowest_price')">
+      <div class="sort_popup_entry" @click="setSort('lowest_price')">
         <div class="popup_entry_title">Lowest Price</div>
         <div class="popup_entry_check">
-          <div class="popup_check" id="lowest_price_check">
+          <div class="popup_check" id="lowest_price_check" v-if="sort==='lowest_price'">
             <img src="../assets/check.svg" />
           </div>
         </div>
       </div>
       <div class="sort_popup_entry">
-        <div class="popup_entry_title" onclick="setSort('highest_price')">
+        <div class="popup_entry_title" @click="setSort('highest_price')">
           Highest Price
         </div>
         <div class="popup_entry_check">
-          <div class="popup_check" id="highest_price_check">
+          <div class="popup_check" id="highest_price_check" v-if="sort==='highest_price'">
             <img src="../assets/check.svg" />
           </div>
         </div>
       </div>
       <div class="sort_popup_entry">
-        <div class="popup_entry_title" onclick="setSort('name')">Name</div>
+        <div class="popup_entry_title" @click="setSort('name')">Name</div>
         <div class="popup_entry_check">
-          <div class="popup_check" id="name_check"><img src="../assets/check.svg" /></div>
+          <div class="popup_check" id="name_check" v-if="sort==='name'"><img src="../assets/check.svg" /></div>
         </div>
       </div>
     </div>
@@ -103,6 +103,7 @@ export default {
       products: [],
 	  categoryDisplay: 'none',
 	  sortDisplay: 'none',
+	  sort: '',
     };
   },
   computed: {},
@@ -114,14 +115,7 @@ export default {
 			this.sortDisplay = (this.sortDisplay === 'none' ? 'block' : 'none')
 		},
 		setSort: function (sortName) {
-			var checks = document.getElementsByClassName('popup_check')
-			for (const check of checks) {
-				if (check.id === sortName + '_check'){
-					check.style.display = 'inline'
-				} else {
-					check.style.display = 'none'
-				}
-			}
+			this.sort = sortName
 		}
   }
 };
