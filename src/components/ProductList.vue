@@ -70,7 +70,7 @@
       <div class="sort_popup_entry" @click="setSort('lowest_price')">
         <div class="popup_entry_title">Lowest Price</div>
         <div class="popup_entry_check">
-          <div class="popup_check" id="lowest_price_check" v-if="sort==='lowest_price'">
+          <div class="popup_check" v-if="sort==='lowest_price'">
             <img src="../assets/check.svg" />
           </div>
         </div>
@@ -80,7 +80,7 @@
           Highest Price
         </div>
         <div class="popup_entry_check">
-          <div class="popup_check" id="highest_price_check" v-if="sort==='highest_price'">
+          <div class="popup_check" v-if="sort==='highest_price'">
             <img src="../assets/check.svg" />
           </div>
         </div>
@@ -88,7 +88,7 @@
       <div class="sort_popup_entry">
         <div class="popup_entry_title" @click="setSort('name')">Name</div>
         <div class="popup_entry_check">
-          <div class="popup_check" id="name_check" v-if="sort==='name'"><img src="../assets/check.svg" /></div>
+          <div class="popup_check" v-if="sort==='name'"><img src="../assets/check.svg" /></div>
         </div>
       </div>
     </div>
