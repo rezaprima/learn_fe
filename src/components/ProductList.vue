@@ -22,15 +22,8 @@
       </div>
     </div>
     <div id="category_popup" v-show="showCategoryPopup">
-      <div class="category_popup_entry">
-        <input type="checkbox" /> electronics
-      </div>
-      <div class="category_popup_entry"><input type="checkbox" /> jewelery</div>
-      <div class="category_popup_entry">
-        <input type="checkbox" /> men's clothing
-      </div>
-      <div class="category_popup_entry">
-        <input type="checkbox" /> women's clothing
+      <div class="category_popup_entry" v-for="category in categories" v-bind:key="category">
+        <input type="checkbox" /> {{ category }}
       </div>
     </div>
     <div id="sort_popup" v-show="showSortPopup">
@@ -100,14 +93,25 @@ export default {
 	  showCategoryPopup: false,
 	  showSortPopup: false,
 	  sort: '',
+	  categories: [],
     };
   },
   computed: {
 	getProducts: function() {
+		if (this.products === []) {
 		fetch('https://fakestoreapi.com/products')
             .then(res=>res.json())
             .then(json=>(this.products = json))
+		}
 		return this.products
+	},
+	getCategories: function() {
+		if(this.categories === []) {
+		fetch('https://fakestoreapi.com/products/categories')
+            .then(res=>res.json())
+            .then(json=>(this.categories = json))
+		}
+		return this.categories
 	}
   },
   methods:{
