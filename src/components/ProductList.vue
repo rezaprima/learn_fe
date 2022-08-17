@@ -1,10 +1,10 @@
 <template>
   <div>
     <div class="products">
-      <div class="product" v-for="product in products" v-bind:key="product.id">
+      <div class="product" v-for="product in getProducts" v-bind:key="product.id">
         <div class="photo">
           <a href="product_detail.html">
-            <img class="picture" v-bind:src="product.image" />
+            <img class="picture" v-bind:src="product.image" height="200"  />
           </a>
         </div>
         <div class="price">$ {{ product.price }}</div>
@@ -102,7 +102,14 @@ export default {
 	  sort: '',
     };
   },
-  computed: {},
+  computed: {
+	getProducts: function() {
+		fetch('https://fakestoreapi.com/products')
+            .then(res=>res.json())
+            .then(json=>(this.products = json))
+		return this.products
+	}
+  },
   methods:{
 		toggleCategoryPopup: function () {
 			this.showCategoryPopup = !this.showCategoryPopup
@@ -142,6 +149,15 @@ export default {
   margin-right: auto;
   width: 200px;
   height: 300px;
+}
+
+.picture {
+	max-width: 190px;
+	max-height: 280px;
+	width: auto;
+	height: auto;
+	object-fit: cover;
+	margin: auto;
 }
 
 .price {
