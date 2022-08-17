@@ -1,10 +1,14 @@
 <template>
   <div>
     <div class="products">
-      <div class="product" v-for="product in getProducts" v-bind:key="product.id">
+      <div
+        class="product"
+        v-for="product in getProducts"
+        v-bind:key="product.id"
+      >
         <div class="photo">
           <a href="product_detail.html">
-            <img class="picture" v-bind:src="product.image" height="200"  />
+            <img class="picture" v-bind:src="product.image" height="200" />
           </a>
         </div>
         <div class="price">$ {{ product.price }}</div>
@@ -22,7 +26,11 @@
       </div>
     </div>
     <div id="category_popup" v-show="showCategoryPopup">
-      <div class="category_popup_entry" v-for="category in categories" v-bind:key="category">
+      <div
+        class="category_popup_entry"
+        v-for="category in getCategories"
+        v-bind:key="category"
+      >
         <input type="checkbox" /> {{ category }}
       </div>
     </div>
@@ -30,7 +38,7 @@
       <div class="sort_popup_entry" @click="setSort('lowest_price')">
         <div class="popup_entry_title">Lowest Price</div>
         <div class="popup_entry_check">
-          <div class="popup_check" v-if="sort==='lowest_price'">
+          <div class="popup_check" v-if="sort === 'lowest_price'">
             <img src="../assets/check.svg" />
           </div>
         </div>
@@ -40,7 +48,7 @@
           Highest Price
         </div>
         <div class="popup_entry_check">
-          <div class="popup_check" v-if="sort==='highest_price'">
+          <div class="popup_check" v-if="sort === 'highest_price'">
             <img src="../assets/check.svg" />
           </div>
         </div>
@@ -48,7 +56,9 @@
       <div class="sort_popup_entry">
         <div class="popup_entry_title" @click="setSort('name')">Name</div>
         <div class="popup_entry_check">
-          <div class="popup_check" v-if="sort==='name'"><img src="../assets/check.svg" /></div>
+          <div class="popup_check" v-if="sort === 'name'">
+            <img src="../assets/check.svg" />
+          </div>
         </div>
       </div>
     </div>
@@ -60,71 +70,42 @@ export default {
   name: "ProductList",
   data: function () {
     return {
-      products: [
-		{
-			id:1,
-			image: '/static/img/picsum7.jpg',
-			price: 22.3,
-			title: 'Men\'s Casual Premium Slim Fit T-Shirt',
-			category: 'men\'s clothing'
-		},
-		{
-			id:2,
-			image: '/static/img/picsum1.jpg',
-			price: 22.3,
-			title: 'Men\'s Casual Premium Slim Fit T-Shirt',
-			category: 'men\'s clothing'
-		},
-		{
-			id:3,
-			image: '/static/img/picsum2.jpg',
-			price: 22.3,
-			title: 'Men\'s Casual Premium Slim Fit T-Shirt',
-			category: 'men\'s clothing'
-		},
-		{
-			id:4,
-			image: '/static/img/picsum3.jpg',
-			price: 22.3,
-			title: 'Men\'s Casual Premium Slim Fit T-Shirt',
-			category: 'men\'s clothing'
-		}
-	  ],
-	  showCategoryPopup: false,
-	  showSortPopup: false,
-	  sort: '',
-	  categories: [],
+      products: [],
+      showCategoryPopup: false,
+      showSortPopup: false,
+      sort: "",
+      categories: [],
     };
   },
   computed: {
-	getProducts: function() {
-		if (this.products === []) {
-		fetch('https://fakestoreapi.com/products')
-            .then(res=>res.json())
-            .then(json=>(this.products = json))
-		}
-		return this.products
-	},
-	getCategories: function() {
-		if(this.categories === []) {
-		fetch('https://fakestoreapi.com/products/categories')
-            .then(res=>res.json())
-            .then(json=>(this.categories = json))
-		}
-		return this.categories
-	}
+    getProducts: function () {
+      if (this.products.length === 0 ) {
+        fetch("https://fakestoreapi.com/products")
+          .then((res) => res.json())
+          .then((json) => (this.products = json));
+      }
+      return this.products;
+    },
+    getCategories: function () {
+      if (this.categories.length === 0) {
+        fetch("https://fakestoreapi.com/products/categories")
+          .then((res) => res.json())
+          .then((json) => (this.categories = json));
+      }
+      return this.categories;
+    },
   },
-  methods:{
-		toggleCategoryPopup: function () {
-			this.showCategoryPopup = !this.showCategoryPopup
-		},
-		toggleSortPopup: function() {
-			this.showSortPopup = !this.showSortPopup
-		},
-		setSort: function (sortName) {
-			this.sort = sortName
-		}
-  }
+  methods: {
+    toggleCategoryPopup: function () {
+      this.showCategoryPopup = !this.showCategoryPopup;
+    },
+    toggleSortPopup: function () {
+      this.showSortPopup = !this.showSortPopup;
+    },
+    setSort: function (sortName) {
+      this.sort = sortName;
+    },
+  },
 };
 </script>
 <style scoped>
@@ -156,12 +137,12 @@ export default {
 }
 
 .picture {
-	max-width: 190px;
-	max-height: 280px;
-	width: auto;
-	height: auto;
-	object-fit: cover;
-	margin: auto;
+  max-width: 190px;
+  max-height: 280px;
+  width: auto;
+  height: auto;
+  object-fit: cover;
+  margin: auto;
 }
 
 .price {
