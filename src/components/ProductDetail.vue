@@ -11,7 +11,7 @@
       </div>
       <div class="price">
         $ 22.3
-        <div id="love" onclick="toggleLove(this)">
+        <div id="love" :class="loved ? 'loved':'unloved'" @click="toggleLove">
           <img width="20" height="20" src="../assets/heart.svg" />
         </div>
       </div>
@@ -30,9 +30,17 @@
 export default {
   name: 'ProductDetail',
   props: ["product"],
+  data: function() {
+	return {
+		loved: false,
+	}
+  },
   methods:{
 	back: function() {
 		this.$emit('back-to-list')
+	},
+	toggleLove: function () {
+		this.loved = !this.loved
 	}
   }
 }
@@ -122,12 +130,20 @@ export default {
 }
 
 #love {
-  background-color: gray;
+  /* background-color: gray; */
   width: 24px;
   height: 24px;
   position: fixed;
   margin-left: auto;
   right: 30px;
   border-radius: 12px;
+}
+
+.loved {
+	background-color: #cc1b4a;
+}
+
+.unloved {
+	background-color: gray;
 }
 </style>
