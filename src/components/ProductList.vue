@@ -126,7 +126,6 @@ export default {
     chooseProduct: function (productId) {
       fetch(`https://fakestoreapi.com/products/${productId}`)
         .then((res) => res.json())
-        // .then((json) => console.log(json))
         .then((json) => this.$emit("choose-product", json));
     },
   },
