@@ -2,25 +2,32 @@
   <div class="body">
     <nav-bar v-on:change-page="changePage"/>
     <login v-if="page==='login'"/>
-    <product-list v-if="page==='product-list'"/>
+    <product-list v-if="page==='product-list'" v-on:choose-product="showProduct"/>
+    <product-detail v-bind:product="product" v-if="page==='product-detail'"/>
   </div>
 </template>
 
 <script>
 import Login from './components/Login.vue'
 import ProductList from './components/ProductList.vue'
+import ProductDetail from './components/ProductDetail.vue'
 import NavBar from './components/NavBar.vue'
 export default {
-  components: { NavBar, Login, ProductList },
+  components: { NavBar, Login, ProductList, ProductDetail },
   name: 'App',
   data: function () {
     return {
       page: 'product-list',
+      product: {},
     }
   },
   methods: {
     changePage(newPage) {
       this.page = newPage
+    },
+    showProduct(product) {
+      this.product = product
+      this.page = 'product-detail'
     }
   }
 }

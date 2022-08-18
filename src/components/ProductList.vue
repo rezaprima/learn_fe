@@ -6,10 +6,8 @@
         v-for="product in getProducts"
         v-bind:key="product.id"
       >
-        <div class="photo">
-          <a href="product_detail.html">
-            <img class="picture" v-bind:src="product.image" height="200" />
-          </a>
+        <div class="photo" @click="chooseProduct(product.id)">
+          <img class="picture" v-bind:src="product.image" height="200" />
         </div>
         <div class="price">$ {{ product.price }}</div>
         <div class="product_title">{{ product.title }}</div>
@@ -124,6 +122,12 @@ export default {
     },
     resetProduct: function () {
       this.products = [];
+    },
+    chooseProduct: function (productId) {
+      fetch(`https://fakestoreapi.com/products/${productId}`)
+        .then((res) => res.json())
+        // .then((json) => console.log(json))
+        .then((json) => this.$emit("choose-product", json));
     },
   },
 };
