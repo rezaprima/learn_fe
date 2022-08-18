@@ -3,7 +3,7 @@
     <nav-bar v-on:change-page="changePage"/>
     <login v-if="page==='login'"/>
     <product-list v-if="page==='product-list'" v-on:choose-product="showProduct"/>
-    <product-detail v-bind:product="product" v-if="page==='product-detail'"/>
+    <product-detail v-bind:product="product" v-if="page==='product-detail'" v-on:back-to-list="backToList"/>
   </div>
 </template>
 
@@ -28,6 +28,10 @@ export default {
     showProduct(product) {
       this.product = product
       this.page = 'product-detail'
+    },
+    backToList() {
+      this.product = {}
+      this.page = 'product-list'
     }
   }
 }

@@ -2,8 +2,8 @@
   <div class="product_detail">
     <div class="product">
       <div id="back_btn">
-        <div id="back_btn_img">
-          <a href="product_list.html"><img src="../assets/chevron-left.svg" /></a>
+        <div id="back_btn_img" @click="back">
+		  <img src="../assets/chevron-left.svg" />
         </div>
       </div>
       <div class="photo">
@@ -30,6 +30,11 @@
 export default {
   name: 'ProductDetail',
   props: ["product"],
+  methods:{
+	back: function() {
+		this.$emit('back-to-list')
+	}
+  }
 }
 </script>
 
