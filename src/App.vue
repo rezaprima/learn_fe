@@ -1,6 +1,6 @@
 <template>
   <div class="body">
-    <nav-bar/>
+    <nav-bar v-on:change-page="changePage"/>
     <login v-if="page==='login'"/>
     <product-list v-if="page==='product-list'"/>
   </div>
@@ -15,7 +15,12 @@ export default {
   name: 'App',
   data: function () {
     return {
-      page: 'product-list'
+      page: 'product-list',
+    }
+  },
+  methods: {
+    changePage(newPage) {
+      this.page = newPage
     }
   }
 }

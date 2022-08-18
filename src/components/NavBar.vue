@@ -1,16 +1,24 @@
 <template>
   <header class="navbar">
     <header>
-        <div id="title"><a href="product_list.html" id="title">Jualanku</a></div>
+        <div id="title" @click="openProductList">Jualanku</div>
         <div id="shopping_cart"><img src="../assets/shopping-cart-white.svg" alt=""></div>
-        <div id="login"><a href="login.html"><img src="../assets/log-in.svg" alt=""></a></div>
+        <div id="login" @click="openLogin"><img src="../assets/log-in.svg" alt=""></div>
     </header>
   </header>
 </template>
 
 <script>
 export default {
-  name: 'Navbar'
+  name: 'Navbar',
+  methods: {
+	openLogin: function () {
+		this.$emit('change-page', 'login')
+	},
+	openProductList: function () {
+		this.$emit('change-page', 'product-list')
+	}
+  }
 }
 </script>
 
