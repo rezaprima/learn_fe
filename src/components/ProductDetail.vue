@@ -105,6 +105,7 @@ export default {
 
 .information {
   background-color: white;
+  margin-bottom: 20px;
 }
 
 .information_title {
