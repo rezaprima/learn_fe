@@ -31,7 +31,13 @@
         v-for="category in getCategories"
         v-bind:key="category"
       >
-        <input type="checkbox" /> {{ category }}
+        <input
+          type="checkbox"
+          v-model="chosenCategories"
+          :value="category"
+          @change="resetProduct"
+        />
+        {{ category }}
       </div>
     </div>
     <div id="sort_popup" v-show="showSortPopup">
@@ -75,14 +81,29 @@ export default {
       showSortPopup: false,
       sort: "",
       categories: [],
+      chosenCategories: [],
     };
   },
   computed: {
     getProducts: function () {
-      if (this.products.length === 0 ) {
-        fetch("https://fakestoreapi.com/products")
-          .then((res) => res.json())
-          .then((json) => (this.products = json));
+      if (this.products.length === 0) {
+        console.log("load");
+        if (this.chosenCategories.length === 0) {
+          fetch("https://fakestoreapi.com/products")
+            .then((res) => res.json())
+            .then((json) => (this.products = json));
+        } else {
+          console.log("load category");
+          console.log(this.chosenCategories);
+          const products = [];
+          this.chosenCategories.flatMap((category) => {
+            fetch(`https://fakestoreapi.com/products/category/${category}`)
+              .then((res) => res.json())
+              .then((data) => products.push(...data));
+          });
+          console.log(products);
+          this.products = products;
+        }
       }
       return this.products;
     },
@@ -104,6 +125,9 @@ export default {
     },
     setSort: function (sortName) {
       this.sort = sortName;
+    },
+    resetProduct: function () {
+      this.products = [];
     },
   },
 };
