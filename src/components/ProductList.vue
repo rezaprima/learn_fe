@@ -87,21 +87,17 @@ export default {
   computed: {
     getProducts: function () {
       if (this.products.length === 0) {
-        console.log("load");
         if (this.chosenCategories.length === 0) {
           fetch("https://fakestoreapi.com/products")
             .then((res) => res.json())
             .then((json) => (this.products = json));
         } else {
-          console.log("load category");
-          console.log(this.chosenCategories);
           const products = [];
           this.chosenCategories.flatMap((category) => {
             fetch(`https://fakestoreapi.com/products/category/${category}`)
               .then((res) => res.json())
               .then((data) => products.push(...data));
           });
-          console.log(products);
           this.products = products;
         }
       }
