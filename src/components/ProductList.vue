@@ -90,13 +90,12 @@ export default {
             .then((res) => res.json())
             .then((json) => (this.products = json));
         } else {
-          const products = [];
+          this.products = [];
           this.chosenCategories.flatMap((category) => {
             fetch(`https://fakestoreapi.com/products/category/${category}`)
               .then((res) => res.json())
-              .then((data) => products.push(...data));
+              .then((data) => this.products.push(...data));
           });
-          this.products = products;
         }
       }
       return this.products;
