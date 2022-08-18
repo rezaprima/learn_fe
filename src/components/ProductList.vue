@@ -71,63 +71,63 @@
 
 <script>
 export default {
-  name: "ProductList",
+  name: 'ProductList',
   data: function () {
     return {
       products: [],
       showCategoryPopup: false,
       showSortPopup: false,
-      sort: "",
+      sort: '',
       categories: [],
-      chosenCategories: [],
-    };
+      chosenCategories: []
+    }
   },
   computed: {
     getProducts: function () {
       if (this.products.length === 0) {
         if (this.chosenCategories.length === 0) {
-          fetch("https://fakestoreapi.com/products")
+          fetch('https://fakestoreapi.com/products')
             .then((res) => res.json())
-            .then((json) => (this.products = json));
+            .then((json) => (this.products = json))
         } else {
-          this.products = [];
+          this.products = []
           this.chosenCategories.flatMap((category) => {
             fetch(`https://fakestoreapi.com/products/category/${category}`)
               .then((res) => res.json())
-              .then((data) => this.products.push(...data));
-          });
+              .then((data) => this.products.push(...data))
+          })
         }
       }
-      return this.products;
+      return this.products
     },
     getCategories: function () {
       if (this.categories.length === 0) {
-        fetch("https://fakestoreapi.com/products/categories")
+        fetch('https://fakestoreapi.com/products/categories')
           .then((res) => res.json())
-          .then((json) => (this.categories = json));
+          .then((json) => (this.categories = json))
       }
-      return this.categories;
+      return this.categories
     },
   },
   methods: {
     toggleCategoryPopup: function () {
-      this.showCategoryPopup = !this.showCategoryPopup;
+      this.showCategoryPopup = !this.showCategoryPopup
     },
     toggleSortPopup: function () {
-      this.showSortPopup = !this.showSortPopup;
+      this.showSortPopup = !this.showSortPopup
     },
     setSort: function (sortName) {
-      this.sort = sortName;
+      this.sort = sortName
     },
     resetProduct: function () {
-      this.products = [];
+      this.products = []
     },
     chooseProduct: function (productId) {
       fetch(`https://fakestoreapi.com/products/${productId}`)
         .then((res) => res.json())
-        .then((json) => this.$emit("choose-product", json));
-    },
-  },
+        .then((json) => this.$emit('choose-product', json))
+    }
+  }
 };
 </script>
 <style scoped>
