@@ -3,7 +3,7 @@
     <div class="product">
       <div id="back_btn">
         <div id="back_btn_img" @click="back">
-		  <img src="../assets/chevron-left.svg" />
+          <img src="../assets/chevron-left.svg" />
         </div>
       </div>
       <div class="photo">
@@ -11,7 +11,7 @@
       </div>
       <div class="price">
         $ 22.3
-        <div id="love" :class="loved ? 'loved':'unloved'" @click="toggleLove">
+        <div id="love" :class="loved ? 'loved' : 'unloved'" @click="toggleLove">
           <img width="20" height="20" src="../assets/heart.svg" />
         </div>
       </div>
@@ -29,19 +29,19 @@
 <script>
 export default {
   name: 'ProductDetail',
-  props: ["product"],
-  data: function() {
-	return {
-		loved: false,
-	}
+  props: ['product'],
+  data: function () {
+    return {
+      loved: false
+    }
   },
-  methods:{
-	back: function() {
-		this.$emit('back-to-list')
-	},
-	toggleLove: function () {
-		this.loved = !this.loved
-	}
+  methods: {
+    back: function () {
+      this.$emit('back-to-list')
+    },
+    toggleLove: function () {
+      this.loved = !this.loved
+    }
   }
 }
 </script>
@@ -61,7 +61,7 @@ export default {
   height: 20px;
 }
 
-.product{
+.product {
   margin-left: auto;
   margin-right: auto;
   background-color: white;
@@ -130,7 +130,6 @@ export default {
 }
 
 #love {
-  /* background-color: gray; */
   width: 24px;
   height: 24px;
   position: fixed;
@@ -140,10 +139,10 @@ export default {
 }
 
 .loved {
-	background-color: #cc1b4a;
+  background-color: #cc1b4a;
 }
 
 .unloved {
-	background-color: gray;
+  background-color: gray;
 }
 </style>

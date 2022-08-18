@@ -18,18 +18,18 @@ export default {
   data: function () {
     return {
       page: 'product-list',
-      product: {},
+      product: {}
     }
   },
   methods: {
-    changePage(newPage) {
+    changePage: function (newPage) {
       this.page = newPage
     },
-    showProduct(product) {
+    showProduct: function (product) {
       this.product = product
       this.page = 'product-detail'
     },
-    backToList() {
+    backToList: function () {
       this.product = {}
       this.page = 'product-list'
     }

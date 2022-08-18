@@ -107,7 +107,7 @@ export default {
           .then((json) => (this.categories = json))
       }
       return this.categories
-    },
+    }
   },
   methods: {
     toggleCategoryPopup: function () {
@@ -128,7 +128,7 @@ export default {
         .then((json) => this.$emit('choose-product', json))
     }
   }
-};
+}
 </script>
 <style scoped>
 .products {

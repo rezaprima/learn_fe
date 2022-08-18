@@ -31,23 +31,23 @@
 
 <script>
 export default {
-  name: "Login",
-  data() {
+  name: 'Login',
+  data: function () {
     return {
-      username: "",
-      password: "",
-      showPassword: false,
-    };
+      username: '',
+      password: '',
+      showPassword: false
+    }
   },
   computed: {
     passwordType: function () {
-      return this.showPassword ? "text" : "password";
+      return this.showPassword ? 'text' : 'password'
     },
     loginNotAllowed: function () {
-      return !(this.username !== "" && this.password !== "");
-    },
-  },
-};
+      return !(this.username !== '' && this.password !== '')
+    }
+  }
+}
 </script>
 
 <style>
