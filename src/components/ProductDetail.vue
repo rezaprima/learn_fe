@@ -10,7 +10,7 @@
         <img class="picture" :src="product.image" />
       </div>
       <div class="price">
-        $ 22.3
+        $ {{ product.price }}
         <div id="love" :class="loved ? 'loved' : 'unloved'" @click="toggleLove">
           <img width="20" height="20" src="../assets/heart.svg" />
         </div>
