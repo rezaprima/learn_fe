@@ -101,11 +101,6 @@ export default {
       return this.products
     },
     getCategories: function () {
-      if (this.categories.length === 0) {
-        fetch('https://fakestoreapi.com/products/categories')
-          .then((res) => res.json())
-          .then((json) => (this.categories = json))
-      }
       return this.categories
     }
   },
@@ -124,7 +119,15 @@ export default {
     },
     chooseProduct: function (productId) {
       this.$router.push(`/${productId}`)
+    },
+    fetchCategories: function () {
+        fetch('https://fakestoreapi.com/products/categories')
+          .then((res) => res.json())
+          .then((json) => (this.categories = json))
     }
+  },
+  created: function () {
+    this.fetchCategories()
   }
 }
 </script>
