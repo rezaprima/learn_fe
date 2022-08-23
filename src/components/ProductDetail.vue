@@ -34,10 +34,10 @@ export default {
       loved: false,
       product: {
         image: '',
-        title:'',
-        category:'',
-        description:'',
-        price:0,
+        title: '',
+        category: '',
+        description: '',
+        price: 0
       }
     }
   },
