@@ -29,19 +29,31 @@
 <script>
 export default {
   name: 'ProductDetail',
-  props: ['product'],
   data: function () {
     return {
-      loved: false
+      loved: false,
+      product: {
+        image: '',
+        title:'',
+        category:'',
+        description:'',
+        price:0,
+      }
     }
   },
   methods: {
     back: function () {
-      this.$emit('back-to-list')
+      this.$router.push('/')
     },
     toggleLove: function () {
       this.loved = !this.loved
     }
+  },
+  created: function () {
+    let productId = this.$route.params.id
+    fetch(`https://fakestoreapi.com/products/${productId}`)
+      .then((res) => res.json())
+      .then((json) => this.product = json)
   }
 }
 </script>
