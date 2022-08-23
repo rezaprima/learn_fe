@@ -1,12 +1,16 @@
 <template>
   <header class="navbar">
     <header>
-      <div id="title" @click="openProductList">Jualanku</div>
+      <router-link to="/">
+        <div id="title">
+          Jualanku
+        </div>
+      </router-link>
       <div id="shopping_cart">
         <img src="../assets/shopping-cart-white.svg" alt="" />
       </div>
-      <div id="login" @click="openLogin">
-        <img src="../assets/log-in.svg" alt="" />
+      <div id="login">
+        <router-link to="/login"> <img src="../assets/log-in.svg" alt="" /></router-link>
       </div>
     </header>
   </header>
@@ -16,12 +20,6 @@
 export default {
   name: 'Navbar',
   methods: {
-    openLogin: function () {
-      this.$router.push('/login')
-    },
-    openProductList: function () {
-      this.$router.push('/')
-    }
   }
 }
 </script>
