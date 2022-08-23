@@ -85,18 +85,7 @@ export default {
   computed: {
     getProducts: function () {
       if (this.products.length === 0) {
-        if (this.chosenCategories.length === 0) {
-          fetch('https://fakestoreapi.com/products')
-            .then((res) => res.json())
-            .then((json) => (this.products = json))
-        } else {
-          this.products = []
-          this.chosenCategories.flatMap((category) => {
-            fetch(`https://fakestoreapi.com/products/category/${category}`)
-              .then((res) => res.json())
-              .then((data) => this.products.push(...data))
-          })
-        }
+        this.fetchProducts(this.chosenCategories)
       }
       return this.products
     },
@@ -124,6 +113,20 @@ export default {
         fetch('https://fakestoreapi.com/products/categories')
           .then((res) => res.json())
           .then((json) => (this.categories = json))
+    },
+    fetchProducts: function(categories) {
+        if (categories.length === 0) {
+          fetch('https://fakestoreapi.com/products')
+            .then((res) => res.json())
+            .then((json) => (this.products = json))
+        } else {
+          this.products = []
+          categories.flatMap((category) => {
+            fetch(`https://fakestoreapi.com/products/category/${category}`)
+              .then((res) => res.json())
+              .then((data) => this.products.push(...data))
+          })
+        }
     }
   },
   created: function () {
