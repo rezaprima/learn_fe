@@ -1,9 +1,8 @@
 <template>
   <div class="body">
     <nav-bar v-on:change-page="changePage"/>
-    <login v-if="page==='login'"/>
-    <product-list v-if="page==='product-list'" v-on:choose-product="showProduct"/>
-    <product-detail v-bind:product="product" v-if="page==='product-detail'" v-on:back-to-list="backToList"/>
+    <!-- <product-detail v-bind:product="product" v-if="page==='product-detail'" v-on:back-to-list="backToList"/> -->
+    <router-view/>
   </div>
 </template>
 

@@ -17,10 +17,10 @@ export default {
   name: 'Navbar',
   methods: {
     openLogin: function () {
-      this.$emit('change-page', 'login')
+      this.$router.push('/login')
     },
     openProductList: function () {
-      this.$emit('change-page', 'product-list')
+      this.$router.push('/')
     }
   }
 }
