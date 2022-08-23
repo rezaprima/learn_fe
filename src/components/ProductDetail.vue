@@ -53,7 +53,7 @@ export default {
     let productId = this.$route.params.id
     fetch(`https://fakestoreapi.com/products/${productId}`)
       .then((res) => res.json())
-      .then((json) => this.product = json)
+      .then((json) => (this.product = json))
   }
 }
 </script>
