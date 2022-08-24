@@ -1,0 +1,16 @@
+[
+  {
+    "name": "login",
+    "path": "/login",
+    "component": "/home/reza/Code/belajar_fe/pages/login.vue",
+    "chunkName": "pages/login",
+    "_name": "_16209b66"
+  },
+  {
+    "name": "index",
+    "path": "/",
+    "component": "/home/reza/Code/belajar_fe/pages/index.vue",
+    "chunkName": "pages/index",
+    "_name": "_4c78f84f"
+  }
+]
